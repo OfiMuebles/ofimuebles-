@@ -19,6 +19,12 @@
 
   <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
+
+
+
   <title>Administrador</title>
 </head>
 
@@ -105,18 +111,20 @@
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
                       <label for="validationDefault01">Nombre Producto</label>
-                      <input type="text" class="form-control" id="validationDefault01" value="" required>
+                      <input id="nameproduct" type="text" class="form-control" id="validationDefault01" value=""
+                        required>
                     </div>
                     <div class="col-md-6 mb-3">
                       <label for="validationDefault02">Precio</label>
-                      <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
+                      <input id="priceproduct" type="text" class="form-control" id="validationDefault02" value=""
+                        required>
                     </div>
                   </div>
                   <div class="form-row">
-                    
+
                     <div class="col-md-3 mb-3">
-                      <label for="validationDefault04">Categoria</label>
-                      <select class="custom-select" id="validationDefault04" required>
+                      <label for="categoryprduct">Categoria</label>
+                      <select class="custom-select" id="categoryprduct" required>
                         <option selected disabled value="">...</option>
                         <option>COMEDORES</option>
                         <option>SALAS</option>
@@ -130,11 +138,12 @@
                     <div class="col-md-3 mb-3">
                       <div class="form-group">
                         <label for="exampleFormControlFile1">Foto Producto</label>
-                        <input type="file" class="form-control-file" id="exampleFormControlFile1" required>
+                        <input id="photoproduct" type="file" class="form-control-file" id="exampleFormControlFile1"
+                          >
                       </div>
                     </div>
                   </div>
-                  <button class="btn btn-primary" type="submit">Agregar Producto</button>
+                  <button onclick="saveproducts()" class="btn btn-primary" >Agregar Producto</button>
                 </form>
               </div>
               <div class="tab-pane fade" id="v-pills-users" role="tabpanel" aria-labelledby="v-pills-users-tab">
@@ -189,6 +198,9 @@
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"
     integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
+
+
+  <script src="../js/admin.js"></script>
 
 </body>
 
