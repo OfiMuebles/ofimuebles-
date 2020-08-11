@@ -1,9 +1,12 @@
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 
+body {
+  padding-top: 56px;
+}
 
 
 .container-carrousel{
-margin-top: 100px;
+margin-top: 35px;
 }
 
 .container{
@@ -12,4 +15,8 @@ margin-top: 100px;
 
 .header{
   margin-top: 0;
+}
+
+.footer{
+  width: 100%;
 }
