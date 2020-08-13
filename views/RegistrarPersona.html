@@ -1,16 +1,12 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
-
-
-        <script
+       <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!--FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
         <link rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <scriptsrc="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <!-- Los iconos tipo Solid de Fontawesome-->
         <link rel = "stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
             <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
@@ -39,11 +35,11 @@
                             
                             <form class="col-12">
                                 <div class="form-group" id="user-group">
-                                    <input type="text" class="form-control"
+                                    <input type="text" id="usuario" class="form-control"
                                         placeholder="Nombre de usuario">
                                 </div>
                                 <div class="form-group" id="password-group">
-                                    <input type="password" class="form-control"
+                                    <input type="password" id="contrasena"class="form-control"
                                         placeholder="Contraseña">
                                 </div>
                                
@@ -60,7 +56,7 @@
                                     </div>
                                     <div class="col-sm-6" ">
                                         <div class="form-group" id="Nombre2-group">
-                                            <input type="text" class="form-control"
+                                            <input type="text" id="segundonombre"class="form-control"
                                             placeholder="Segundo nombre">
                                         </div>
                                     </div>
@@ -79,7 +75,7 @@
                                     </div>
                                     <div class="col-sm-6" ">
                                         <div class="form-group" id="Apellido2-group">
-                                            <input type="text" class="form-control"
+                                            <input type="text" id="segundoapellido"class="form-control"
                                             placeholder="Segundo apellido">
                                         </div>
                                     </div>
@@ -95,14 +91,25 @@
                                     placeholder="Ingrese su correo electronico ">
                                 </div>
                                 
-                                <button onclick="agregarDatos()" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Registrar</button>
+                                
                             </form>
                             
                         </div>
                     </div>
                 </div>
+                <button onclick="agregarDatos()" > Registrar</button>
             </div>
-            <script src="../js/registro.js"></script>
-           
+            
+
+            
+
+ <!--Firbase-->
+ <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
+
+<!-- Initialize Firebase -->
+<script src="../js/registro.js"></script>
+
         </body>
     </html>
