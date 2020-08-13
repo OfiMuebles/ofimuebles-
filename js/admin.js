@@ -14,18 +14,16 @@ firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
 
-
 function saveproducts() {
-
-
-    //var nameproduct = document.getElementById("nameproduct").value;
     //var priceproduct = document.getElementById("priceproduct").value;
     //var categoryproduct = document.getElementById("categoryproduct").value;
     //var photoproduct = document.getElementById("photoproduct").value;
+    var nameproduct = document.getElementById("nameproduct").value;
+    console.log("nombre: " + nameproduct);
 
     db.collection("products").add({
-        name: nameproduct.value,
-        price: priceproduct.value
+        name: document.getElementById("nameproduct").value,
+        price: document.getElementById("priceproduct").value
     })
         .then((docRef) => {
             console.log("Document written with ID:", docRef.id);
@@ -34,5 +32,5 @@ function saveproducts() {
         .catch((error) => {
             console.error("Error adding document: ", error);
         });
-    
+
 }
