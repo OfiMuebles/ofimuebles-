@@ -1,9 +1,6 @@
 
 
-
-// Your web app's Firebase configuration
-
-const firebaseConfig = {
+var firebaseConfig = {
     apiKey: "AIzaSyBRykX5yZEriXqKduFibF8xHyjZ0KVwSG4",
     authDomain: "jeilopez.firebaseapp.com",
     databaseURL: "https://jeilopez.firebaseio.com",
@@ -14,33 +11,28 @@ const firebaseConfig = {
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
+
 var db = firebase.firestore();
+
 
 function saveproducts() {
 
 
-    var nameproduct = document.getElementById("nameproduct").value;
-    var priceproduct = document.getElementById("priceproduct").value;
-    var categoryproduct = document.getElementById("categoryproduct").value;
+    //var nameproduct = document.getElementById("nameproduct").value;
+    //var priceproduct = document.getElementById("priceproduct").value;
+    //var categoryproduct = document.getElementById("categoryproduct").value;
     //var photoproduct = document.getElementById("photoproduct").value;
 
     db.collection("products").add({
-        name: nameproduct,
-        price: priceproduct,
-        category: categoryproduct
-        //photo : photoproduct
-
+        name: nameproduct.value,
+        price: priceproduct.value
     })
-        .then(function (docRef) {
-            console.log("id: ", docRef.id);
-            /*document.getElementById("nameproduct").value = "";
-            document.getElementById("priceproduct").value = "";
-            document.getElementById("categoryproduct").value = "";
-            document.getElementById("photoproduct").value = "";*/
+        .then((docRef) => {
+            console.log("Document written with ID:", docRef.id);
+            alert('Datos agregados correctamente', docRef.id)
         })
-        .cath(function (error) {
-            console.error(error);
+        .catch((error) => {
+            console.error("Error adding document: ", error);
         });
-
+    
 }
-
