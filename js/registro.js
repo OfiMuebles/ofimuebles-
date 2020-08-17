@@ -13,8 +13,7 @@ firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
 
-
-function agregarDatos(){
+function agregarDatos(user){
     db.collection("Estudiante").add({
         nombredeusuario:usuario.value,
         contraseñadeusuario:contrasena.value,
