@@ -28,7 +28,7 @@
   <title>Administrador</title>
 </head>
 
-<body>
+<body id="body">
 
   <div class="d-flex" id="content-wrapper">
 
@@ -44,9 +44,14 @@
               <a class="nav-link active" id="v-pills-products-tab" data-toggle="pill" href="#v-pills-products"
                 role="tab" aria-controls="v-pills-products" aria-selected="true"><i
                   class="icon ion-md-apps lead mr-2"></i> Agregar Productos</a>
+              <a class="nav-link" id="v-pills-product-tab" data-toggle="pill" href="#v-pills-product" role="tab"
+                aria-controls="v-pills-product" aria-selected="false" onclick="Listproducts()"><i
+                  class="icon ion-md-people lead mr-2"></i>Listar
+                Productos</a>
               <a class="nav-link" id="v-pills-users-tab" data-toggle="pill" href="#v-pills-users" role="tab"
-                aria-controls="v-pills-users" aria-selected="false"><i class="icon ion-md-people lead mr-2"></i>Listar
-                usuarios</a>
+                aria-controls="v-pills-users" aria-selected="false" onclick=""><i
+                  class="icon ion-md-people lead mr-2"></i>Listar
+                Usuarios</a>
               <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
                 aria-controls="v-pills-settings" aria-selected="false"><i
                   class="icon ion-md-stats lead mr-2"></i>Estadisticas</a>
@@ -103,28 +108,28 @@
 
 
         <section>
+
           <div class="col-9">
+            <!-- AGREGAR PRODUCTOS -->
             <div class="tab-content" id="v-pills-tabContent">
               <div class="tab-pane fade show active" id="v-pills-products" role="tabpanel"
                 aria-labelledby="v-pills-products-tab">
                 <form>
                   <div class="form-row">
                     <div class="col-md-6 mb-3">
-                      <label for="validationDefault01">Nombre Producto</label>
-                      <input id="nameproduct" type="text" class="form-control" id="validationDefault01" value=""
-                        required>
+                      <label for="nameproduct">Nombre Producto</label>
+                      <input id="nameproduct" type="text" class="form-control" value="" required>
                     </div>
                     <div class="col-md-6 mb-3">
-                      <label for="validationDefault02">Precio</label>
-                      <input id="priceproduct" type="text" class="form-control" id="validationDefault02" value=""
-                        required>
+                      <label for="priceproduct">Precio</label>
+                      <input id="priceproduct" type="number" class="form-control" value="" required>
                     </div>
                   </div>
                   <div class="form-row">
 
                     <div class="col-md-3 mb-3">
-                      <label for="categoryprduct">Categoria</label>
-                      <select class="custom-select" id="categoryprduct" required>
+                      <label for="categoryproduct">Categoria</label>
+                      <select class="custom-select" id="categoryproduct" required>
                         <option selected disabled value="">...</option>
                         <option>COMEDORES</option>
                         <option>SALAS</option>
@@ -137,50 +142,103 @@
                     </div>
                     <div class="col-md-3 mb-3">
                       <div class="form-group">
-                        <label for="exampleFormControlFile1">Foto Producto</label>
-                        <input id="photoproduct" type="file" class="form-control-file" id="exampleFormControlFile1"
-                          >
+                        <label for="photoproduct">Foto Producto</label>
+                        <input id="photoproduct" type="file" class="form-control-file">
                       </div>
                     </div>
                   </div>
-                  
+
                 </form>
-                <button onclick="saveproducts()" class="btn btn-primary" >Agregar Producto</button>
+                <button onclick="saveproducts()" class="btn btn-primary">Agregar Producto</button>
               </div>
-              <div class="tab-pane fade" id="v-pills-users" role="tabpanel" aria-labelledby="v-pills-users-tab">
+
+              <!-- LISTAR PRODUCTOS -->
+
+              <div class="tab-pane fade" id="v-pills-product" role="tabpanel" aria-labelledby="v-pills-product-tab">
                 <table class="table table-responsive table-bordered">
                   <thead>
                     <tr>
-                      <th>Nombre</th>
-                      <th>Usuario</th>
-                      <th>Email</th>
+                      <th>Nombre Producto</th>
+                      <th>Precio Producto</th>
+                      <th>Categoria Producto</th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <td>John</td>
-                      <td>Doe</td>
-                      <td>john@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>Smith</td>
-                      <td>Thomas</td>
-                      <td>smith@example.com</td>
-                    </tr>
-                    <tr>
-                      <td>Merry</td>
-                      <td>Jim</td>
-                      <td>merry@example.com</td>
-                    </tr>
+                  <input class="d-none" type="text" id="id">
+                  <tbody id="listproducts">
+
+
                   </tbody>
                 </table>
+
+
+
+
+                <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="editarLabel"
+                  aria-hidden="true">
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="editLabel">Actualizar Datos</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+
+                        <form id="addproducts">
+                          <div class="form-row">
+                            <div class="col-md-12 mb-3">
+                              <label for="nameproduct1">Nombre Producto</label>
+                              <input id="nameproduct1" type="text" class="form-control" value="" required>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                              <label for="priceproduct1">Precio</label>
+                              <input id="priceproduct1" type="number" class="form-control" value="" required>
+                            </div>
+                          </div>
+                          <div class="form-row">
+
+                            <div class="col-md-12 mb-3">
+                              <label for="categoryproduct1">Categoria</label>
+                              <select class="custom-select" id="categoryproduct1" required>
+                                <option selected disabled value="">...</option>
+                                <option>COMEDORES</option>
+                                <option>SALAS</option>
+                                <option>ALCOBAS</option>
+                                <option>OFICINA</option>
+                                <option>DECORACION</option>
+                                <option>SILLAS</option>
+                                <option>OTRO</option>
+                              </select>
+                            </div>
+                            <div class="col-md-12 mb-3">
+                              <div class="form-group">
+                                <label for="photoproduct1">Foto Producto</label>
+                                <input id="photoproduct1" type="file" class="form-control-file">
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                          onclick="act()">confirmar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+                <div class="tab-pane fade" id="v-pills-users" role="tabpanel" aria-labelledby="v-pills-users-tab">
+                  ...</div>
+                <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                  ...</div>
               </div>
-              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                ...</div>
-              <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
-                ...</div>
             </div>
-          </div>
         </section>
       </div>
 
@@ -200,8 +258,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"
     integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>
 
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
 
   <script src="../js/admin.js"></script>
 
