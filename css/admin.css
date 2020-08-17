@@ -67,7 +67,7 @@ a:hover {
 
 .logo {
     display: flex;
-    margin-top: 300px;
+    margin-top: 30px;
     margin-left: 20px;
 }
 
@@ -81,7 +81,7 @@ a:hover {
 
 .navbar {
     display: flex;
-    margin-top: 250px;
+    margin-top: 20px;
 }
 
 .nav {
