@@ -12,11 +12,15 @@
     <script src="https://kit.fontawesome.com/02df8aaeaf.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="/css/index.css">
 
+
+    <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+
     <title>Portafolio</title>
 </head>
 
 
-<body>
+<body onload="getdiningrooms()">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top ">
         <div class="container">
@@ -128,58 +132,17 @@
 
 
 
-            <div class="container mt-5">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="card">
-                            <img src="../img/comedor.png" alt="card-1" class="card-img-top">
-                            <div class="card-body">
-                                <h5>comedor 1</h5>
-                                <h6>$34.00</h6>
-                                <button class="btn btn-danger"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add To
-                                    Cart</button>
-                            </div>
-                        </div>
-                    </div>
+            <div class="container mt-5" >
+                <div class="row" id="getdiningroom">
 
-                    <div class="col-md-3">
-                        <div class="card">
-                            <img src="../img/comedor.png" alt="card-1" class="card-img-top">
-                            <div class="card-body">
-                                <h5>comedor 1</h5>
-                                <h6>$34.00</h6>
-                                <button class="btn btn-danger"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add To
-                                    Cart</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3">
-                        <div class="card">
-                            <img src="../img/comedor.png" alt="card-1" class="card-img-top">
-                            <div class="card-body">
-                                <h5>comedor 1</h5>
-                                <h6>$34.00</h6>
-                                <button class="btn btn-danger"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add To
-                                    Cart</button>
-                            </div>
-                        </div>
-                    </div>
+                    
 
 
-
-                    <div class="col-md-3">
-                        <div class="card">
-                            <img src="../img/comedor.png" alt="card-1" class="card-img-top">
-                            <div class="card-body">
-                                <h5>comedor 1</h5>
-                                <h6>$34.00</h6>
-                                <button class="btn btn-danger"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add To
-                                    Cart</button>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+
+                    
+
+                   
             </div>
 
 
@@ -537,6 +500,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
+
+
+        <script src="../js/admin.js"></script>
 
 
 </body>
