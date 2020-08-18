@@ -151,3 +151,66 @@ function Listproducts() {
 
 }
 
+function cerrarSesion() {
+  console.log("Aleta")
+  firebase.auth().signOut()
+      .then(() => {
+          console.log("Sesion cerrada exitosamente");
+          window.location.href = 'index.html';
+      }).catch((error) => {
+         console.log(error.message)
+      });
+}
+
+function limpiarDatosLogin() {
+  emailUser.value = "";
+  passUser.value = "";
+}
+function verificar() {
+  var user = firebase.auth().currentUser;
+
+  user.sendEmailVerification().then(function () {
+      // Email sent.
+  }).catch(function (error) {
+      // An error happened.
+  });
+}
+
+function registraUsuario() {
+  firebase.auth().createUserWithEmailAndPassword(emailUser.value, passUser.value)
+      .then(() => {
+          verificar();
+          console.log("El usuario se ha registrado");
+          limpiarDatosLogin();
+      })
+      .catch(function (error) {
+          console.log("Error: ", error.message);
+      }); 
+}
+
+
+function login() {
+  var uno = emailUser.value;
+  firebase.auth().signInWithEmailAndPassword(uno, passUser.value)
+      .then((user) => {
+          sessionStorage.setItem('login', user.email);
+          window.location.href = '../views/admin.html';
+      })
+      .catch(function (error) {
+          console.log("Error: ", error.message);
+          limpiarDatosLogin();
+      });
+}
+
+
+
+function estado() {
+  firebase.auth().onAuthStateChanged(function (user) {
+      if (user) {
+          emailUsuarioLogueado.innerHTML = user.email;
+      }
+      else {
+          window.location.href = 'index.html';
+      }
+  });
+}
