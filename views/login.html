@@ -1,57 +1,98 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en"> 
     <head>
+       
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
+        
 
         <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!--FRAMEWORK BOOTSTRAP para el estilo de la pagina-->
         <link rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-        <scriptsrc="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
         <!-- Los iconos tipo Solid de Fontawesome-->
         <link rel = "stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
             <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
             <!-- Nuestro css-->
             <link rel="stylesheet" href="../css/login.css">
-            <script src="https://unpkg.com/ionicons@5.1.2/dist/ionicons.js"></script>
+
+
             <title> Iniciar sesion</title>
-        </head>
+    </head>
 
         <body>
+
             <header>
+
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
                     <div class="container">
-                    <a class="navbar-brand" href="../index.html"><img
+                        <a class="navbar-brand" href="../index.html"><img
                             src="../img/LogoMakr_6XCbnL.png"
-                            class="logo-branc" alt="logo"></a>
-                        </div>
-                    </nav>
-                </header>
+                            class="logo-branc" alt="logo">
+                        </a>
+                    </div>
+
+                </nav>
+
+            </header>
+
+
                 <div class="modal-dialog text-center">
+
                     <div class="col-5m-8 main-section">
+
                         <div class="modal-content">
+
                             <div class="col-12 user-img">
                                 <img src="../img/userr.png" alt="">
                             </div>
-                            <form class="col-12">
+
+                            <div class="login">
+
                                 <div class="form-group" id="user-group">
-                                    <input type="text" class="form-control"
+                                    <input id="emailUser" type="email" class="form-control" 
                                         placeholder="Nombre de usuario">
                                 </div>
+
                                 <div class="form-group" id="password-group">
-                                    <input type="password" class="form-control"
+                                    <input id="passUser" type="password" class="form-control"
                                         placeholder="Contraseña">
                                 </div>
-                                <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Ingresar</button>
-                            </form>
-                            <div class="col-12 forgot">
-                                <a href="#">Recordar contraseña</a>
+
+                                <div class="col-12 forgot">
+                                    <button onclick="registraUsuario()" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>Registrar</button>
+                                    <button onclick="login()" type="button" class="btn btn-success"><i class="fas fa-user-edit"></i> Login</button>
+
+                                    <a href="#">Recordar contraseña</a>
+                                </div>
+
                             </div>
+                             
                         </div>
+
                     </div>
+
                 </div>
-            </div>
+            
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+          <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"
+            integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI=" crossorigin="anonymous"></script>   
+
+     
+            
+            <script src="/js/login.js"></script>
+
 
         </body>
     </html>
-git
