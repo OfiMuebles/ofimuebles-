@@ -106,7 +106,7 @@ function Listproducts() {
                         
                         <td>${doc.data().name}</td>
                         <td>${doc.data().price}</td>
-                        <td>${doc.data().category}</td>
+                        <td>${doc.data().category}</td> 
                     <td>
                       <button type="button" class="btn btn-primary openBtn" data-toggle="modal" data-target="#edit" onclick="edit('${doc.id}')">
                         Editar

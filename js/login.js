@@ -10,8 +10,7 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-var emailUser = document.getElementById('emailUser');
-var passUser = document.getElementById('passUser');
+
 
 function limpiarDatosLogin() {
     emailUser.value = "";
@@ -45,7 +44,7 @@ function login() {
     firebase.auth().signInWithEmailAndPassword(uno, passUser.value)
         .then((user) => {
             sessionStorage.setItem('login', user.email);
-            window.location.href = '/views/index.html';
+            window.location.href = '../index.html';
         })
         .catch(function (error) {
             console.log("Error: ", error.message);
