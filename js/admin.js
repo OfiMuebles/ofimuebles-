@@ -116,7 +116,7 @@ function getdiningrooms() {
           
           `;
 
-        console.log(doc.id, " => ", doc.data());
+        ///console.log(doc.id, " => ", doc.data());
       });
     })
     .catch(function (error) {
@@ -124,6 +124,44 @@ function getdiningrooms() {
     });
 
 }
+
+function getrooms(){
+
+  getroom.innerHTML = "";
+  db.collection("products").where("category", "==", "SALAS")
+    .get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        getroom.innerHTML += `
+              
+        <div class="col-md-3" >
+        <div class="card">
+            <img src="../img/comedor.png" alt="card-1" class="card-img-top">
+            <div class="card-body" >
+                <h5>${doc.data().name}</h5>
+                <h6>$ ${doc.data().price}</h6>
+                <button class="btn btn-danger"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add To
+                    Cart</button>
+            </div>
+        </div>
+    </div>
+          
+          `;
+
+        ///console.log(doc.id, " => ", doc.data());
+      });
+    })
+    .catch(function (error) {
+      console.log("Error getting documents: ", error);
+    });
+
+}
+
+function get(){
+  getdiningrooms()
+  getrooms()
+}
+
 
 
 function Listproducts() {
