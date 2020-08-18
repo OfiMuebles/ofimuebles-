@@ -13,16 +13,36 @@ firebase.initializeApp(firebaseConfig);
 
 var db = firebase.firestore();
 
+function verificar() {
+    var user = firebase.auth().currentUser;
+  
+    user.sendEmailVerification().then(function () {
+        // Email sent.
+    }).catch(function (error) {
+        // An error happened.
+    });
+  }
+
+
 function agregarDatos(user){
+
+    firebase.auth().createUserWithEmailAndPassword(emailUser.value, contrasena.value)
+    .then(() => {
+        verificar();
+        console.log("El usuario se ha registrado");
+    })
+    .catch(function (error) {
+        console.log("Error: ", error.message);
+    }); 
+
     db.collection("Estudiante").add({
         nombredeusuario:usuario.value,
-        contraseñadeusuario:contrasena.value,
         primernombre: primernombre.value,
         segundonombre: segundonombre.value,
         primerapellido: primerapellido.value,
         segundoapellido:segundoapellido.value,
         rol:"Usuario"
-    }) 
+    })  
     .then((docRef)=>{
         console.log("Document written with ID:", docRef.id);
         alert('Datos agregados correctamente', docRef.id) 
@@ -30,6 +50,6 @@ function agregarDatos(user){
     .catch((error)=> {
         console.error("Error adding document: ", error);
     });
-    console.log(`El nombre es: ${primernombre.value} y el apellido es: ${primerapellido.value}`);
+    console.log(`El nombre es:   ${primernombre.value} y el apellido es: ${primerapellido.value}`);
 
 }
