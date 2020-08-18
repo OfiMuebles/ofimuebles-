@@ -136,7 +136,38 @@ function getrooms(){
               
         <div class="col-md-3" >
         <div class="card">
-            <img src="../img/comedor.png" alt="card-1" class="card-img-top">
+            <img src="../img/sala.png" alt="card-1" class="card-img-top">
+            <div class="card-body" >
+                <h5>${doc.data().name}</h5>
+                <h6>$ ${doc.data().price}</h6>
+                <button class="btn btn-danger"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add To
+                    Cart</button>
+            </div>
+        </div>
+    </div>
+          
+          `;
+
+        ///console.log(doc.id, " => ", doc.data());
+      });
+    })
+    .catch(function (error) {
+      console.log("Error getting documents: ", error);
+    });
+
+}
+
+function getbedroom(){
+  bedroom.innerHTML = "";
+  db.collection("products").where("category", "==", "ALCOBAS")
+    .get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        bedroom.innerHTML += `
+              
+        <div class="col-md-3" >
+        <div class="card">
+            <img src="../img/alcoba.png" alt="card-1" class="card-img-top">
             <div class="card-body" >
                 <h5>${doc.data().name}</h5>
                 <h6>$ ${doc.data().price}</h6>
@@ -160,6 +191,7 @@ function getrooms(){
 function get(){
   getdiningrooms()
   getrooms()
+  getbedroom()
 }
 
 
