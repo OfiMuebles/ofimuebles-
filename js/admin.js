@@ -26,7 +26,7 @@ function reset() {
 }
 
 var idProducts = document.getElementById("id");
-
+var emailUsuarioLogueado = document.getElementById('emailUsuarioLogueado');
 
 
 
@@ -257,7 +257,7 @@ function cerrarSesion() {
   firebase.auth().signOut()
     .then(() => {
       console.log("Sesion cerrada exitosamente");
-      window.location.href = 'index.html';
+      
     }).catch((error) => {
       console.log(error.message)
     });
@@ -273,27 +273,26 @@ function limpiarDatosLogin() {
 function login() {
   var uno = emailUser.value;
   firebase.auth().signInWithEmailAndPassword(uno, passUser.value)
-    .then((user) => {
-      console.log(user);
-      sessionStorage.setItem('login', user.email);
-   //   window.location.href = '../views/admin.html';
-    })
-    .catch(function (error) {
-      console.log("Error: ", error.message);
-      
-    });
-    limpiarDatosLogin();
+      .then((user) => {
+          sessionStorage.setItem('login', user.email);
+          window.location.href = '/views/admin.html';
+      })
+      .catch(function (error) {
+          console.log("Error: ", error.message);
+          limpiarDatosLogin();
+      });
+   
 }
-
 
 
 function estado() {
   firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      emailUsuarioLogueado.innerHTML = user.email;
-    }
-    else {
-      window.location.href = 'index.html';
-    }
+      if (user) {
+          emailUsuarioLogueado.innerHTML = user.email;
+      }
+      else {
+          window.location.href = '../index.html';
+      }
   });
 }
+
