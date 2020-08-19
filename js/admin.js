@@ -101,7 +101,7 @@ function getdiningrooms() {
     .then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
         getdiningroom.innerHTML += `
-              
+        <br></br> 
         <div class="col-md-3" >
         <div class="card">
             <img src="../img/comedor.png" alt="card-1" class="card-img-top">
@@ -125,7 +125,7 @@ function getdiningrooms() {
 
 }
 
-function getrooms(){
+function getrooms() {
 
   getroom.innerHTML = "";
   db.collection("products").where("category", "==", "SALAS")
@@ -133,7 +133,7 @@ function getrooms(){
     .then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
         getroom.innerHTML += `
-              
+        <br></br> 
         <div class="col-md-3" >
         <div class="card">
             <img src="../img/sala.png" alt="card-1" class="card-img-top">
@@ -157,25 +157,106 @@ function getrooms(){
 
 }
 
-function getbedroom(){
+function getdecoration() {
+  decoration.innerHTML = "";
+  db.collection("products").where("category", "==", "DECORACION")
+    .get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        decoration.innerHTML += `
+        <br></br> 
+        <img src="../img/decoración.png" class="img-fluid mr-3 w-50" alt="media1">
+        <div class="media-body mt-2">
+            <h5>${doc.data().name}</h5>
+            <h6>$ ${doc.data().price}</h6>
+            <button class="btn btn-success"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add
+                To Cart</button>
+        </div>
+          
+          `;
+
+        ///console.log(doc.id, " => ", doc.data());
+      });
+    })
+    .catch(function (error) {
+      console.log("Error getting documents: ", error);
+    });
+}
+
+function getoffice() {
+  office.innerHTML = "";
+  db.collection("products").where("category", "==", "OFICINA")
+    .get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        office.innerHTML += `
+        <br></br> 
+        <img src="../img/oficina.png" class="img-fluid mr-3 w-50" alt="media1">
+        <div class="media-body mt-2">
+            <h5>${doc.data().name}</h5>
+            <h6>$ ${doc.data().price}</h6>
+            <button class="btn btn-success"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add
+                To Cart</button>
+        </div>
+          
+          `;
+
+        ///console.log(doc.id, " => ", doc.data());
+      });
+    })
+    .catch(function (error) {
+      console.log("Error getting documents: ", error);
+    });
+}
+
+function getchair() {
+  chair.innerHTML = "";
+  db.collection("products").where("category", "==", "SILLAS")
+    .get()
+    .then(function (querySnapshot) {
+      querySnapshot.forEach(function (doc) {
+        chair.innerHTML += `
+        <br></br>  
+        <img src="../img/silla.png" class="img-fluid mr-3 w-50" alt="media1">
+        <div class="media-body mt-2">
+            <h5>${doc.data().name}</h5>
+            <h6>$ ${doc.data().price}</h6>
+            <button class="btn btn-success"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add
+                To Cart</button>
+        </div>
+          
+          `;
+
+        ///console.log(doc.id, " => ", doc.data());
+      });
+    })
+    .catch(function (error) {
+      console.log("Error getting documents: ", error);
+    });
+}
+
+function getbedroom() {
   bedroom.innerHTML = "";
   db.collection("products").where("category", "==", "ALCOBAS")
     .get()
     .then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
         bedroom.innerHTML += `
-              
-        <div class="col-md-3" >
-        <div class="card">
-            <img src="../img/alcoba.png" alt="card-1" class="card-img-top">
-            <div class="card-body" >
-                <h5>${doc.data().name}</h5>
-                <h6>$ ${doc.data().price}</h6>
-                <button class="btn btn-danger"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add To
-                    Cart</button>
-            </div>
-        </div>
-    </div>
+        <br></br> 
+              <div class="media mt-5" >
+                <div class="col-md-3" >
+                  <div class="card">
+                    <img src="../img/alcoba.png" alt="card-1" class="card-img-top">
+                      <div class="card-body" >
+                        <h5>${doc.data().name}</h5>
+                        <h6>$ ${doc.data().price}</h6>
+                        <button class="btn btn-danger"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add To
+                          Cart</button>
+                  </div>
+                </div>
+              </div>
+        
+    
           
           `;
 
@@ -188,13 +269,14 @@ function getbedroom(){
 
 }
 
-function get(){
+function get() {
   getdiningrooms()
   getrooms()
   getbedroom()
+  getoffice()
+  getdecoration()
+  getchair()
 }
-
-
 
 function Listproducts() {
   listproducts.innerHTML = "";

@@ -41,8 +41,9 @@ a:hover {
 }
 
 #content {
-    overflow-y: auto;
+    
     height: 100vh;
+
     padding-bottom: 5rem;
 }
 
@@ -66,9 +67,9 @@ a:hover {
 }
 
 .logo {
-    display: flex;
-    margin-top: 30px;
-    margin-left: 20px;
+    
+    margin-top: 26px;
+    margin-left: 25px;
 }
 
 .tab-content{
@@ -80,8 +81,8 @@ a:hover {
 }
 
 .navbar {
-    display: flex;
-    margin-top: 20px;
+   
+    margin-top: 27px;
 }
 
 .nav {
@@ -90,6 +91,11 @@ a:hover {
 
 .table {
     margin-top: 20px;
+}
+
+#v-pills-settings-tab {
+    display: block;
+    padding: -0.5rem 0rem;
 }
 
 @media (max-width: 768px) {
