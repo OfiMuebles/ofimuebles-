@@ -336,9 +336,7 @@ function Listproducts() {
                         </div>
                       </div>
                     </td>
-                </tr> 
-                <button type="button" class="btn btn-primary openBtn" data-toggle="modal" onclick="window.location.href='/views/portafolio.html'">
-      Ir a Portafolio </button>          
+                </tr>           
                 `;
     });
   })
@@ -389,21 +387,11 @@ function estado() {
       emailUsuarioLogueado.innerHTML = user.email;
     }
     else {
-      window.location.href = '/views/login.html';
+      window.location.href = '../index.html';
     }
   });
 }
 
-function estadoLogin() {
-  firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      window.location.href = '/views/admin.html';
-    }
-    else {
-      
-    }
-  });
-}
 
 archivo.addEventListener('change', (e) => {
   var nombre = e.target.files[0].name;
