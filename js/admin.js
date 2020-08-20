@@ -339,7 +339,9 @@ function Listproducts() {
                         </div>
                       </div>
                     </td>
-                </tr>           
+                </tr> 
+                
+                
                 `;
     });
   })

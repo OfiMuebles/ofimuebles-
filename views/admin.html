@@ -31,7 +31,7 @@
     <title>Administrador</title>
   </head>
 
-  <body id="body" >
+  <body id="body">
 
     <div class="d-flex" id="content-wrapper">
 
@@ -45,7 +45,7 @@
             <div class="col-3">
               <div class="nav flex-column nav-pills" id="v-pills-tab"
                 role="tablist" aria-orientation="vertical">
-                
+
                 <a class="nav-link active" id="v-pills-products-tab"
                   data-toggle="pill" href="#v-pills-products"
                   role="tab" aria-controls="v-pills-products"
@@ -145,13 +145,14 @@
               
               -->
               <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-products" role="tabpanel"
+                <div class="tab-pane fade show active" id="v-pills-products"
+                  role="tabpanel"
                   aria-labelledby="v-pills-products">
                   <form>
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="nameproduct">Nombre Producto</label>
-                        <input id="nameproduct" type="text" class="form-control" 
+                        <input id="nameproduct" type="text" class="form-control"
                           value="" required>
                       </div>
                       <div class="col-md-6 mb-3">
@@ -181,11 +182,16 @@
                           <label for="photoproduct">Foto Producto</label>
                           <div class="input-group">
                             <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="archivo"  name="archivo" aria-describedby="inputGroupFileAddon04">
-                              <label class="custom-file-label" for="inputGroupFile04">Elegir imagen</label>
+                              <input type="file" class="custom-file-input"
+                                id="archivo" name="archivo"
+                                aria-describedby="inputGroupFileAddon04">
+                              <label class="custom-file-label"
+                                for="inputGroupFile04">Elegir imagen</label>
                             </div>
                             <div class="input-group-append">
-                              <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" onclick="subirImagen()">subir Imagen</button>
+                              <button class="btn btn-outline-secondary"
+                                type="button" id="inputGroupFileAddon04"
+                                onclick="subirImagen()">subir Imagen</button>
                             </div>
                           </div>
                         </div>
@@ -194,15 +200,17 @@
                     </div>
 
                   </form>
-                  <button id="addproduct" onclick="saveproducts()" class="btn btn-primary d-none">Agregar
+                  <button id="addproduct" onclick="saveproducts()" class="btn
+                    btn-primary d-none">Agregar
                     Producto</button>
-                    <img src="" alt="" name="imgSubida" id="imgSubida">
+                  <img src="" alt="" name="imgSubida" id="imgSubida">
                 </div>
 
 
                 <!-- LISTAR PRODUCTOS -->
 
-                <div class="tab-pane fade" id="v-pills-listproduct" role="tabpanel"
+                <div class="tab-pane fade" id="v-pills-listproduct"
+                  role="tabpanel"
                   aria-labelledby="v-pills-product-tab">
                   <table class="table table-responsive table-bordered">
                     <thead>
@@ -212,6 +220,10 @@
                         <th>Categoria Producto</th>
                       </tr>
                     </thead>
+                    <button type="button" class="btn btn-primary openBtn"
+                      data-toggle="modal" onclick="window.location.href = '/views/portafolio.html'">
+                      ir al portafolio
+                    </button>
                     <input class="d-none" type="text" id="id">
                     <tbody id="listproducts">
 
@@ -271,11 +283,17 @@
                                   <label for="photoproduct1">Foto Producto</label>
                                   <div class="input-group">
                                     <div class="custom-file">
-                                      <input type="file" class="custom-file-input" id="archivo1"  name="archivo1" aria-describedby="inputGroupFileAddon0">
-                                      <label class="custom-file-label" for="inputGroupFile04">Elegir imagen</label>
+                                      <input type="file"
+                                        class="custom-file-input" id="archivo1"
+                                        name="archivo1"
+                                        aria-describedby="inputGroupFileAddon0">
+                                      <label class="custom-file-label"
+                                        for="inputGroupFile04">Elegir imagen</label>
                                     </div>
                                     <div class="input-group-append">
-                                      <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon0" onclick="subirImagen()">subir Imagen</button>
+                                      <button class="btn btn-outline-secondary"
+                                        type="button" id="inputGroupFileAddon0"
+                                        onclick="subirImagen()">subir Imagen</button>
                                     </div>
                                   </div>
                                 </div>
@@ -327,11 +345,12 @@
       <script
         src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"
         integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI="crossorigin="anonymous"></script>
-
       <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+      <script
+        src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script>
+      <script
+        src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script>
       <script src="../js/admin.js"></script>
       <script>
         estado();
