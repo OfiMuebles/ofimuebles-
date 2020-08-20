@@ -72,7 +72,11 @@
     <div class="container-fluid bg-dark header-top d-none d-md-block">
         <div class="container">
             <div class="row text-light pt-2 pb-2">
-                <div class="col-md-5"><i class="fa fa-envelope-o" aria-hidden="true"></i> victorpradan@gmail.com</div>
+                <div class="col-md-5"><i class="fa fa-envelope-o" aria-hidden="true"></i> 
+                    
+                    <label id="emailUsuarioLogueadoLogin">xxxx</label>
+                
+                </div>
                 <div class="col-md-3">
 
                 </div>
@@ -336,9 +340,14 @@
         integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
         crossorigin="anonymous"></script>
 
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
 
         <script src="../js/admin.js"></script>
-
+        <script>
+            estadoGeneral();
+       </script>
 
 </body>
 

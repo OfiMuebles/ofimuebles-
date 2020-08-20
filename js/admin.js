@@ -30,6 +30,7 @@ function reset() {
 
 var idProducts = document.getElementById("id");
 var emailUsuarioLogueado = document.getElementById('emailUsuarioLogueado');
+emailUsuarioLogueadoLogin=document.getElementById('emailUsuarioLogueadoLogin');
 var btnproduct = document.getElementById('addproduct');
 var archivo = document.getElementById('archivo');
 var imgArchivo = document.getElementById('imgSubida');
@@ -381,13 +382,35 @@ function login() {
 }
 
 
+function estadoGeneral() {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      emailUsuarioLogueadoLogin.innerHTML = user.email;
+    }
+    else {
+    }
+  });
+}
+
+
+function estadoLogin() {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      window.location.href = '/views/admin.html';
+    }
+    else {
+      
+    }
+  });
+}
+
 function estado() {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       emailUsuarioLogueado.innerHTML = user.email;
     }
     else {
-      window.location.href = '../index.html';
+      window.location.href = '/views/login.html';
     }
   });
 }
