@@ -97,9 +97,9 @@
                     <img src="../img/user-1.png" class="img-fluid rounded-circle
                       avatar mr-2" />
 
-                      <label id="emailUsuarioLogueado">xxxx</label>
+                    <label id="emailUsuarioLogueado">xxxx</label>
 
-                    
+
                   </a>
                   <div class="dropdown-menu dropdown-menu-right"
                     aria-labelledby="navbarDropdown">
@@ -168,16 +168,23 @@
                       <div class="col-md-3 mb-3">
                         <div class="form-group">
                           <label for="photoproduct">Foto Producto</label>
-                          <input id="photoproduct" type="file"
-                            class="form-control-file">
+                          <input type="file" name="archivo" id="archivo">
+
+                          <input onclick="subirImagen()" type="button" name="btnSubirImg" id="btnSubirImg"
+                            class="btn btn-primary" value="Subir Imagen">
+                            
+
                         </div>
+
                       </div>
                     </div>
 
                   </form>
                   <button onclick="saveproducts()" class="btn btn-primary">Agregar
                     Producto</button>
+                    <img src="" alt="" name="imgSubida" id="imgSubida">
                 </div>
+
 
                 <!-- LISTAR PRODUCTOS -->
 
@@ -299,13 +306,11 @@
       <script
         src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"
         integrity="sha256-R4pqcOYV8lt7snxMQO/HSbVCFRPMdrhAFMH+vr9giYI="crossorigin="anonymous"></script>
+
       <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-app.js"></script>
-      <script
-        src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-firestore.js"></script>
       <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-auth.js"></script>
-      
-
-
+      <script src="https://www.gstatic.com/firebasejs/7.2.3/firebase-storage.js"></script>
       <script src="../js/admin.js"></script>
       <script>
         estado();

@@ -15,8 +15,7 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 var db = firebase.firestore();
-
-
+var storage = firebase.storage();
 
 function reset() {
   nameproduct.value = "";
@@ -28,6 +27,8 @@ function reset() {
 var idProducts = document.getElementById("id");
 var emailUsuarioLogueado = document.getElementById('emailUsuarioLogueado');
 
+var archivo= document.getElementById('archivo');
+var imgArchivo = document.getElementById('imgSubida');
 
 
 function saveproducts() {
@@ -36,6 +37,7 @@ function saveproducts() {
     name: nameproduct.value,
     price: priceproduct.value,
     category: categoryproduct.value,
+    linkImagen:imgArchivo.src
   })
     .then((docRef) => {
       console.log("Document written with ID:", docRef.id);
@@ -378,3 +380,28 @@ function estado() {
   });
 }
 
+
+archivo.addEventListener('change', (e) => {
+  var nombre = e.target.files[0].name;
+  var tmp = URL.createObjectURL(e.target.files[0]);
+  console.log("Evento: ", tmp);
+  imgArchivo.src = tmp;
+})
+
+
+function subirImagen(){
+  var archivoFile = archivo.files[0];
+  var nombre = archivo.files[0].name;
+  var uploadTask = storage.ref('img/' + nombre).put(archivoFile)
+  .then((img) =>{
+    console.log('Imagen subida... ', img.totalBytes);
+  });
+
+storage.ref('img/' + nombre).getDownloadURL()
+.then((urlImg)=>{
+  imgArchivo.src=urlImg;
+console.log(urlImg)
+});
+  
+
+}

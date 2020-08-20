@@ -35,13 +35,14 @@ function agregarDatos(user){
         console.log("Error: ", error.message);
     }); 
 
-    db.collection("Estudiante").add({
+    db.collection("Usuario").add({
         nombredeusuario:usuario.value,
         primernombre: primernombre.value,
         segundonombre: segundonombre.value,
         primerapellido: primerapellido.value,
         segundoapellido:segundoapellido.value,
-        rol:"Usuario"
+        CorreoUsuario:emailUser.value,
+        ContrasenaUsuario:contrasena.value
     })  
     .then((docRef)=>{
         console.log("Document written with ID:", docRef.id);
