@@ -376,10 +376,12 @@ function login() {
     .then((user) => {
       sessionStorage.setItem('login', user.email);
       window.location.href = '/views/admin.html';
+      limpiarDatosLogin();
     })
     .catch(function (error) {
+      alert("Error Por favor verifique los datos de usuario... Error: "+error.message);
       console.log("Error: ", error.message);
-      limpiarDatosLogin();
+      
 
     });
 
