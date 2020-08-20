@@ -53,8 +53,10 @@ function agregarDatos(user){
         })  
         .then((docRef)=>{
             console.log("Document written with ID:", docRef.id);
-            alert('Datos agregados correctamente', docRef.id) ;
+            alert('Datos agregados correctamente... por favor inicia sesion', docRef.id) ;
             limpiardatos();
+            firebase.auth().signOut();
+            window.location.href = '/views/login.html';
 
         })
         .catch((error)=> {
@@ -64,6 +66,7 @@ function agregarDatos(user){
     })
     .catch(function (error) {
         console.log("Error: ", error.message);
+        alert("Por favor revisar los datos digitados... Error:"+ error.message);
     }); 
 
     
