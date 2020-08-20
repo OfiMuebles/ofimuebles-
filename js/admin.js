@@ -336,7 +336,9 @@ function Listproducts() {
                         </div>
                       </div>
                     </td>
-                </tr>           
+                </tr> 
+                <button type="button" class="btn btn-primary openBtn" data-toggle="modal" onclick="window.location.href='/views/portafolio.html'">
+      Ir a Portafolio </button>          
                 `;
     });
   })
