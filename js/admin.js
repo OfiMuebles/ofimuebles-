@@ -79,7 +79,8 @@ function act() {
   db.collection("products").doc(idProducts.value).update({
     name: nameproduct1.value,
     price: priceproduct1.value,
-    category: categoryproduct1.value
+    category: categoryproduct1.value,
+    linkImagen : archivo1.src
   })
     .then(() => {
       console.log("Document successfully updated!");
@@ -100,6 +101,7 @@ function edit(id) {
       nameproduct1.value = doc.data().name;
       priceproduct1.value = doc.data().price;
       categoryproduct1.value = doc.data().category;
+      archivo1.src = doc.data().linkImagen;
     })
     .catch((error) => {
       console.log("Error: ", error);
@@ -149,7 +151,7 @@ function getrooms() {
         <br></br> 
         <div class="col-md-3" >
         <div class="card">
-            <img src="../img/sala.png" alt="card-1" class="card-img-top">
+            <img src="${doc.data().linkImagen}" alt="card-1" class="card-img-top">
             <div class="card-body" >
                 <h5>${doc.data().name}</h5>
                 <h6>$ ${doc.data().price}</h6>
@@ -178,7 +180,7 @@ function getdecoration() {
       querySnapshot.forEach(function (doc) {
         decoration.innerHTML += `
         <br></br> 
-        <img src="../img/decoración.png" class="img-fluid mr-3 w-50" alt="media1">
+        <img src="${doc.data().linkImagen}" class="img-fluid mr-3 w-50" alt="media1">
         <div class="media-body mt-2">
             <h5>${doc.data().name}</h5>
             <h6>$ ${doc.data().price}</h6>
@@ -204,7 +206,7 @@ function getoffice() {
       querySnapshot.forEach(function (doc) {
         office.innerHTML += `
         <br></br> 
-        <img src="../img/oficina.png" class="img-fluid mr-3 w-50" alt="media1">
+        <img src="${doc.data().linkImagen}" class="img-fluid mr-3 w-50" alt="media1">
         <div class="media-body mt-2">
             <h5>${doc.data().name}</h5>
             <h6>$ ${doc.data().price}</h6>
@@ -230,7 +232,7 @@ function getchair() {
       querySnapshot.forEach(function (doc) {
         chair.innerHTML += `
         <br></br>  
-        <img src="../img/silla.png" class="img-fluid mr-3 w-50" alt="media1">
+        <img src="${doc.data().linkImagen}" class="img-fluid mr-3 w-50" alt="media1">
         <div class="media-body mt-2">
             <h5>${doc.data().name}</h5>
             <h6>$ ${doc.data().price}</h6>
@@ -259,7 +261,7 @@ function getbedroom() {
               <div class="media mt-5" >
                 <div class="col-md-3" >
                   <div class="card">
-                    <img src="../img/alcoba.png" alt="card-1" class="card-img-top">
+                    <img src="${doc.data().linkImagen}" alt="card-1" class="card-img-top">
                       <div class="card-body" >
                         <h5>${doc.data().name}</h5>
                         <h6>$ ${doc.data().price}</h6>
@@ -417,6 +419,13 @@ function estado() {
 
 
 archivo.addEventListener('change', (e) => {
+  var nombre = e.target.files[0].name;
+  var tmp = URL.createObjectURL(e.target.files[0]);
+  console.log("Evento: ", tmp);
+  imgArchivo.src = tmp;
+})
+
+archivo1.addEventListener('change', (e) => {
   var nombre = e.target.files[0].name;
   var tmp = URL.createObjectURL(e.target.files[0]);
   console.log("Evento: ", tmp);
