@@ -116,7 +116,7 @@ function getdiningrooms() {
         <br></br> 
         <div class="col-md-3" >
         <div class="card">
-            <img src="../img/comedor.png" alt="card-1" class="card-img-top">
+            <img src="${doc.data().linkImagen}" alt="card-1" class="card-img-top">
             <div class="card-body" >
                 <h5>${doc.data().name}</h5>
                 <h6>$ ${doc.data().price}</h6>
