@@ -269,8 +269,15 @@
                               <div class="col-md-12 mb-3">
                                 <div class="form-group">
                                   <label for="photoproduct1">Foto Producto</label>
-                                  <input id="photoproduct1" type="file"
-                                    class="form-control-file">
+                                  <div class="input-group">
+                                    <div class="custom-file">
+                                      <input type="file" class="custom-file-input" id="archivo1"  name="archivo1" aria-describedby="inputGroupFileAddon0">
+                                      <label class="custom-file-label" for="inputGroupFile04">Elegir imagen</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                      <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon0" onclick="subirImagen()">subir Imagen</button>
+                                    </div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
