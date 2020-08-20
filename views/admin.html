@@ -31,7 +31,7 @@
     <title>Administrador</title>
   </head>
 
-  <body id="body">
+  <body id="body" >
 
     <div class="d-flex" id="content-wrapper">
 
@@ -133,14 +133,14 @@
             <div class="col-9">
               <!-- AGREGAR PRODUCTOS -->
               <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="v-pills-products"
+                <div class="tab-pane fade show active" id="v-pills-products 
                   role="tabpanel"
                   aria-labelledby="v-pills-products-tab">
                   <form>
                     <div class="form-row">
                       <div class="col-md-6 mb-3">
                         <label for="nameproduct">Nombre Producto</label>
-                        <input id="nameproduct" type="text" class="form-control"
+                        <input id="nameproduct" type="text" class="form-control" 
                           value="" required>
                       </div>
                       <div class="col-md-6 mb-3">
@@ -168,19 +168,22 @@
                       <div class="col-md-3 mb-3">
                         <div class="form-group">
                           <label for="photoproduct">Foto Producto</label>
-                          <input type="file" name="archivo" id="archivo">
-
-                          <input onclick="subirImagen()" type="button" name="btnSubirImg" id="btnSubirImg"
-                            class="btn btn-primary" value="Subir Imagen">
-                            
-
+                          <div class="input-group">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="archivo"  name="archivo" aria-describedby="inputGroupFileAddon04">
+                              <label class="custom-file-label" for="inputGroupFile04">Elegir imagen</label>
+                            </div>
+                            <div class="input-group-append">
+                              <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04" onclick="subirImagen()">subir Imagen</button>
+                            </div>
+                          </div>
                         </div>
 
                       </div>
                     </div>
 
                   </form>
-                  <button onclick="saveproducts()" class="btn btn-primary">Agregar
+                  <button id="addproduct" onclick="saveproducts()" class="btn btn-primary d-none">Agregar
                     Producto</button>
                     <img src="" alt="" name="imgSubida" id="imgSubida">
                 </div>
