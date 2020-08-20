@@ -387,11 +387,21 @@ function estado() {
       emailUsuarioLogueado.innerHTML = user.email;
     }
     else {
-      window.location.href = '../index.html';
+      window.location.href = '/views/login.html';
     }
   });
 }
 
+function estadoLogin() {
+  firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      window.location.href = '/views/admin.html';
+    }
+    else {
+      
+    }
+  });
+}
 
 archivo.addEventListener('change', (e) => {
   var nombre = e.target.files[0].name;
