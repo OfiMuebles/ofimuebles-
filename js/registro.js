@@ -23,34 +23,49 @@ function verificar() {
     });
   }
 
+function limpiardatos(){
+    usuario.value="";
+    primernombre.value="";
+    segundonombre.value="";
+    primerapellido.value="";
+    segundoapellido.value="";
+    emailUser.value="";
+    contrasena.value="";
+
+}
+
 
 function agregarDatos(user){
 
     firebase.auth().createUserWithEmailAndPassword(emailUser.value, contrasena.value)
+
     .then(() => {
         verificar();
         console.log("El usuario se ha registrado");
+        db.collection("Usuario").add({
+            nombredeusuario:usuario.value,
+            primernombre: primernombre.value,
+            segundonombre: segundonombre.value,
+            primerapellido: primerapellido.value,
+            segundoapellido:segundoapellido.value,
+            CorreoUsuario:emailUser.value,
+            ContrasenaUsuario:contrasena.value
+        })  
+        .then((docRef)=>{
+            console.log("Document written with ID:", docRef.id);
+            alert('Datos agregados correctamente', docRef.id) ;
+            limpiardatos();
+
+        })
+        .catch((error)=> {
+            console.error("Error adding document: ", error);
+        });
+
     })
     .catch(function (error) {
         console.log("Error: ", error.message);
     }); 
 
-    db.collection("Usuario").add({
-        nombredeusuario:usuario.value,
-        primernombre: primernombre.value,
-        segundonombre: segundonombre.value,
-        primerapellido: primerapellido.value,
-        segundoapellido:segundoapellido.value,
-        CorreoUsuario:emailUser.value,
-        ContrasenaUsuario:contrasena.value
-    })  
-    .then((docRef)=>{
-        console.log("Document written with ID:", docRef.id);
-        alert('Datos agregados correctamente', docRef.id) 
-    })
-    .catch((error)=> {
-        console.error("Error adding document: ", error);
-    });
-    console.log(`El nombre es:   ${primernombre.value} y el apellido es: ${primerapellido.value}`);
+    
 
 }
