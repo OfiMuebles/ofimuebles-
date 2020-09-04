@@ -1,0 +1,50 @@
+#cabecera{
+    background-color:#95c499;
+    height: 200px;
+}
+
+#nombre{
+    height: 100px;
+    background-color:#ebebeb;
+
+}
+
+#cards{
+    height: 400px;
+    padding: 50px 50px;
+    background-color: #ebebeb;
+}
+
+.logocentrado{
+position: absolute;
+height: 170px;
+width: 170px;
+top: -75px;
+border-radius: 50%;
+background-color: #ebebeb;
+padding: 10px;
+}
+
+.brand_logo{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid rgb(255, 255,255);
+}
+
+#CardInferiores{
+    background-color: #ebebeb;
+    padding: 50px 50px;
+
+}
+.html{
+    background-color: #ebebeb;
+}
+.footer{
+    height: 150px;
+  
+    background-color: #094c79;
+}
+.datos{
+    background-color: #ebebeb;
+}
